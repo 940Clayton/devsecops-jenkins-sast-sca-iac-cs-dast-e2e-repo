@@ -37,7 +37,7 @@ pipeline {
     stage('RunSnykSCA') {
       steps {
         withCredentials([string(credentialsId: 'SNYK_TOKEN', variable: 'SNYK_TOKEN')]) {
-          bat("mvn snyk:test -fn")
+          bat("mvn -X snyk:test -fn")
         }
       }
     }
